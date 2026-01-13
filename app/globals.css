@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   CSS Design System - Portfolio
+   ============================================ */
+
+/* Custom CSS Variables */
+@theme {
+    /* Colors */
+    --color-bg-primary: #0a0a0a;
+    --color-bg-secondary: #111111;
+    --color-bg-tertiary: #1a1a1a;
+
+    --color-accent-blue: #0071e3;
+    --color-accent-cyan: #00d4ff;
+    --color-accent-purple: #8b5cf6;
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-text-tertiary: rgba(255, 255, 255, 0.5);
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-glow: rgba(0, 113, 227, 0.5);
+
+    /* Shadows */
+    --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 30px rgba(0, 113, 227, 0.3);
+
+    /* Font sizes */
+    --font-size-display: 5rem;
+    --font-size-h1: 4rem;
+    --font-size-h2: 3rem;
+    --font-size-h3: 2rem;
+    --font-size-h4: 1.5rem;
+    --font-size-body: 1rem;
+    --font-size-small: 0.875rem;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+
+    /* Z-index layers */
+    --z-base: 1;
+    --z-floating: 10;
+    --z-overlay: 100;
+    --z-modal: 1000;
+}
+
+/* Base styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-cyan);
+}
+
+/* Selection */
+::selection {
+    background: var(--color-accent-blue);
+    color: white;
+}
+
+/* ============================================
+   Animation Keyframes
+   ============================================ */
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 113, 227, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(0, 113, 227, 0.6);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes particle-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(10px, -10px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.animate-slide-up {
+    animation: slide-up 0.6s ease forwards;
+    opacity: 0;
+}
+
+.animate-fade-in {
+    animation: fade-in 0.6s ease forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section divider */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--color-accent-blue) 50%,
+            transparent 100%);
+    opacity: 0.3;
+}
+
+/* ============================================
+   shadcn/ui Overrides
+   ============================================ */
+
+@theme inline {
+    --radius: 0.625rem;
+    --background: var(--color-bg-primary);
+    --foreground: var(--color-text-primary);
+    --card: var(--color-bg-secondary);
+    --card-foreground: var(--color-text-primary);
+    --popover: var(--color-bg-secondary);
+    --popover-foreground: var(--color-text-primary);
+    --primary: var(--color-accent-blue);
+    --primary-foreground: #ffffff;
+    --secondary: var(--color-bg-tertiary);
+    --secondary-foreground: var(--color-text-primary);
+    --muted: var(--color-bg-tertiary);
+    --muted-foreground: var(--color-text-tertiary);
+    --accent: var(--color-accent-blue);
+    --accent-foreground: #ffffff;
+    --destructive: #ef4444;
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-accent-blue);
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+/* Fix for dialog/modal */
+[data-radix-popper-content-wrapper] {
+    z-index: 1000 !important;
+}
+
+/* Custom focus styles */
+*:focus-visible {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+}
+
+/* Button hover enhancement */
+button:not(:disabled):hover {
+    transform: translateY(-1px);
+}
+
+/* Link underline animation */
+a.underline-hover {
+    position: relative;
+}
+
+a.underline-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent-blue);
+    transition: width 0.3s ease;
+}
+
+a.underline-hover:hover::after {
+    width: 100%;
+}
+
+/* Card hover lift */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* Fix for horizontal scroll in experience section */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
