@@ -26,7 +26,11 @@ export default function About() {
 
                             {/* Image container */}
                             <div className="relative w-full h-full rounded-lg bg-gradient-to-br from-bg-secondary to-bg-tertiary border border-white/10 overflow-hidden flex items-center justify-center">
-                                <span className="text-5xl lg:text-6xl font-bold gradient-text">{personalInfo.initials}</span>
+                                <img
+                                    src={personalInfo.pfp}
+                                    alt={personalInfo.name}
+                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                                />
                             </div>
                         </div>
                     </div>
