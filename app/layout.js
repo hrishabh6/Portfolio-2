@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 // Site URL - update this when deploying
-const siteUrl = "https://hrishabhj.me";
+const siteUrl = "https://portfolio-2-tau-six.vercel.app";
 
 export const metadata = {
     // Core SEO
@@ -57,7 +57,7 @@ export const metadata = {
             "Full-Stack Developer specializing in Spring Boot, React, and microservices. Building scalable backends and elegant frontends. Currently at Thales Group.",
         images: [
             {
-                url: "/images/others/pfpb.jpeg",
+                url: "/images/others/pfpb.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Hrishabh Joshi - Full-Stack Developer",
@@ -72,7 +72,7 @@ export const metadata = {
         title: "Hrishabh Joshi | Full-Stack Developer",
         description:
             "Building scalable backends & elegant frontends. Spring Boot, React, Next.js, Microservices. Currently @ThalesGroup",
-        images: ["/images/others/pfpb.jpeg"],
+        images: ["/images/others/pfpb.jpg"],
         creator: "@hrishabbhjoshi",
     },
 
@@ -115,7 +115,7 @@ const jsonLd = {
     name: "Hrishabh Joshi",
     alternateName: ["HJ", "Hrishabh"],
     url: siteUrl,
-    image: `${siteUrl}/images/others/pfpb.jpeg`,
+    image: `${siteUrl}/images/others/pfpb.jpg`,
     description:
         "Full-Stack Developer and Backend Engineer specializing in Spring Boot, React, and microservices.",
     email: "hrishabbhjoshi123@gmail.com",
