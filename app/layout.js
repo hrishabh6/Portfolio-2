@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/next"
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-sans",
@@ -170,6 +170,7 @@ export default function RootLayout({ children }) {
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
             </head>
             <body className={`${inter.variable} font-sans antialiased`}>
+                <Analytics/>
                 {children}
             </body>
         </html>
