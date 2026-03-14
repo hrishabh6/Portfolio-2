@@ -160,6 +160,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className="dark">
             <head>
+                <meta name="google-site-verification" content="O27M-inOAvZD0RWOW5FXf-8zNiwher0ps4yMp7otfuo" />
                 {/* JSON-LD Structured Data */}
                 <script
                     type="application/ld+json"
